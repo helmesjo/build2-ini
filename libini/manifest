@@ -1,15 +1,15 @@
 : 1
 name: libini
-version: 0.1.0-a.0.z
+version: 0.1.1-a.0.z
 language: c
-project: build2-ini
-summary: Ini
-license: other: proprietary ; Not free/open source.
+project: ini
+summary: Tiny ANSI C library for loading INI config files
+license: MIT
 description-file: README.md
 package-description-file: PACKAGE-README.md
-url: https://example.org/upstream
-email: upstream@example.org
-package-url: https://github.com/build2-packaging/build2-ini
+url: https://github.com/rxi/ini
+email: rxi@users.noreply.github.com
+package-url: https://github.com/build2-packaging/ini
 package-email: packaging@build2.org ; Mailing list.
 depends: * build2 >= 0.18.0
 depends: * bpkg >= 0.18.0
