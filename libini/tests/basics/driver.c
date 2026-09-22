@@ -6,7 +6,7 @@
 #undef NDEBUG
 #include <assert.h>
 
-int main ()
+int main (void)
 {
   static const char path[] = "driver.ini";
 
