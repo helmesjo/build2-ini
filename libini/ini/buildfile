@@ -1,0 +1,41 @@
+intf_libs = # Interface dependencies.
+impl_libs = # Implementation dependencies.
+#import xxxx_libs += libhello%lib{hello}
+
+lib{ini}: {h c}{**} $impl_libs $intf_libs
+
+# Build options.
+#
+c.poptions =+ "-I$out_root" "-I$src_root"
+
+#obja{*}: c.poptions += -DINI_STATIC_BUILD
+#objs{*}: c.poptions += -DINI_SHARED_BUILD
+
+# Export options.
+#
+lib{ini}:
+{
+  c.export.poptions = "-I$out_root" "-I$src_root"
+  c.export.libs = $intf_libs
+}
+
+#liba{ini}: c.export.poptions += -DINI_STATIC
+#libs{ini}: c.export.poptions += -DINI_SHARED
+
+# For pre-releases use the complete version to make sure they cannot
+# be used in place of another pre-release or the final version. See
+# the version module for details on the version.* variable values.
+#
+if $version.pre_release
+  lib{ini}: bin.lib.version = "-$version.project_id"
+else
+  lib{ini}: bin.lib.version = "-$version.major.$version.minor"
+
+# Install into the ini/ subdirectory of, say, /usr/include/
+# recreating subdirectories.
+#
+h{*}:
+{
+  install         = include/ini/
+  install.subdirs = true
+}

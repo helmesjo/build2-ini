@@ -1,0 +1,6 @@
+$out_root/
+{
+  include ini/
+}
+
+export $out_root/ini/$import.target

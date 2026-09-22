@@ -1,0 +1,3 @@
+import libs = libini%lib{ini}
+
+exe{driver}: {h c}{**} $libs testscript{**}
