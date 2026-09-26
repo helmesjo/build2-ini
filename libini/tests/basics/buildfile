@@ -1,3 +1,9 @@
 import libs = libini%lib{ini}
 
 exe{driver}: {h c}{**} $libs testscript{**}
+
+# Clang targeting the MSVC UCRT flags fopen()/sscanf() as deprecated in
+# favor of the _s() variants, which upstream does not use.
+#
+if ($c.id == 'clang' && $c.target.class == 'windows')
+  obj{driver}: c.coptions += -Wno-deprecated-declarations
